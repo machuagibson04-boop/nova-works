@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Works Design | Logos • Flyers • Brand Kits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', Arial, sans-serif; background: #000000; color: #F5F5F5; line-height: 1.6; position: relative; min-height: 100vh; }
+        body::before { content: ''; background: url('logo.png') center/contain no-repeat; opacity: 0.03; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vh; z-index: 0; pointer-events: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        header { background: #0F0F0F; padding: 20px 0; border-bottom: 1px solid #2B2B35; position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 36px; width: auto; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: #F5F5F5; }
+        .logo-text span { color: #6B1E3A; }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; border: 2px solid #B8A1D9; color: #B8A1D9; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.2s; }
+        .btn-back:hover { background: #B8A1D9; color: #000000; transform: translateX(-4px); }
+        .design-hero { text-align: center; padding: 60px 0 40px; }
+        h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; color: #6B1E3A; }
+        .hero-subtext { color: #A0A0B0; font-size: 1.1rem; margin-bottom: 30px; }
+        .filter-bar { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .filter-btn { padding: 8px 20px; background: #2B2B35; border: 1px solid #2B2B35; color: #A0A0B0; border-radius: 20px; cursor: pointer; font-family: inherit; font-weight: 500; transition: all 0.2s; }
+        .filter-btn:hover, .filter-btn.active { background: #6B1E3A; border-color: #6B1E3A; color: #F5F5F5; }
+        .design-grid { display: grid; gap: 28px; grid-template-columns: 1fr; padding-bottom: 80px; }
+        .design-card { background: #2B2B35; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 30px rgba(0,0,0,0.4); border: 1px solid #1a1a20; transition: transform 0.3s, box-shadow 0.3s; }
+        .design-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(107, 30, 58, 0.2); }
+        .design-img { width: 100%; height: 280px; object-fit: cover; background: #1A1A1A; display: block; }
+        .design-info { padding: 24px; }
+        .design-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: #F5F5F5; }
+        .design-desc { color: #A0A0B0; font-size: 0.95rem; margin-bottom: 16px; line-height: 1.5; }
+        .design-footer { display: flex; justify-content: space-between; align-items: center; }
+        .design-price { font-size: 1.3rem; font-weight: 700; color: #B8A1D9; }
+        .btn-order { padding: 10px 20px; background: #6B1E3A; color: #F5F5F5; text-decoration: none; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+        .btn-order:hover { background: #7d2343; transform: scale(1.05); }
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: #6B1E3A; color: #F5F5F5; padding: 16px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 6px 20px rgba(107, 30, 58, 0.5); z-index: 99; transition: all 0.2s; }
+        .whatsapp-float:hover { transform: scale(1.05); background: #7d2343; }
+        footer { background: #000000; text-align: center; padding: 30px 0; color: #A0A0B0; font-size: 0.9rem; border-top: 1px solid #2B2B35; }
+        @media (min-width: 640px) { .design-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .design-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 3.2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Nova Works">
+                <div class="logo-text">Nova<span>Works</span> Design</div>
+            </div>
+            <a href="index.html" class="btn-back">← Back to Main Site</a>
+        </div>
+    </header>
+
+    <section class="design-hero">
+        <div class="container">
+            <h1>Graphic Design That Stands Out</h1>
+            <p class="hero-subtext">Logos • Flyers • Posters • Social Media • Brand Kits — Nairobi | Call: 0796 498 268</p>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" hx-on:click="filterDesigns('all', this)">All Work</button>
+                <button class="filter-btn" hx-on:click="filterDesigns('logo', this)">Logos</button>
+                <button class="filter-btn" hx-on:click="filterDesigns('flyer', this)">Flyers</button>
+                <button class="filter-btn" hx-on:click="filterDesigns('social', this)">Social Media</button>
+                <button class="filter-btn" hx-on:click="filterDesigns('brand', this)">Brand Kits</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="design-grid" id="designGrid">
+                <div class="design-card" data-category="logo">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Logo+Design" alt="Logo Design" class="design-img">
+                    <div class="design-info">
+                        <h3 class="design-name">Custom Logo Package</h3>
+                        <p class="design-desc">3 unique concepts + 3 revisions. Includes PNG, SVG, PDF + brand colors. Full commercial use.</p>
+                        <div class="design-footer">
+                            <span class="design-price">KES 8,000</span>
+                            <button class="btn-order" hx-on:click="orderDesign('Custom Logo Package', '8000')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-category="flyer">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Event+Flyer" alt="Event Flyer" class="design-img">
+                    <div class="design-info">
+                        <h3 class="design-name">Event Flyer Design</h3>
+                        <p class="design-desc">A5/A4 flyer for events, sales, church. Print-ready + social media version included.</p>
+                        <div class="design-footer">
+                            <span class="design-price">KES 2,500</span>
+                            <button class="btn-order" hx-on:click="orderDesign('Event Flyer Design', '2500')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-category="social">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Social+Media+Kit" alt="Social Media Kit" class="design-img">
+                    <div class="design-info">
+                        <h3 class="design-name">Social Media Kit</h3>
+                        <p class="design-desc">9 post templates + 3 story templates for Instagram/Facebook. Editable Canva files.</p>
+                        <div class="design-footer">
+                            <span class="design-price">KES 5,000</span>
+                            <button class="btn-order" hx-on:click="orderDesign('Social Media Kit', '5000')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-category="brand">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Brand+Kit" alt="Brand Kit" class="design-img">
+                    <div class="design-info">
+                        <h3 class="design-name">Starter Brand Kit</h3>
+                        <p class="design-desc">Logo + color palette + font pairing + business card + letterhead. Complete brand ID.</p>
+                        <div class="design-footer">
+                            <span class="design-price">KES 15,000</span>
+                            <button class="btn-order" hx-on:click="orderDesign('Starter Brand Kit', '15000')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-category="flyer">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Business+Flyer" alt="Business Flyer" class="design-img">
+                    <div class="design-info">
+                        <h3 class="design-name">Business Service Flyer</h3>
+                        <p class="design-desc">Professional flyer for salons, shops, services. Includes QR code + contact details.</p>
+                        <div class="design-footer">
+                            <span class="design-price">KES 3,000</span>
+                            <button class="btn-order" hx-on:click="orderDesign('Business Service Flyer', '3000')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-category="logo">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Logo+Refresh" alt="Logo Refresh" class="design-img">
+                    <div class="design-info">
+                        <h3 class="design-name">Logo Refresh</h3>
+                        <p class="design-desc">Modernize your existing logo. Keep brand recognition but make it 2026-ready.</p>
+                        <div class="design-footer">
+                            <span class="design-price">KES 5,500</span>
+                            <button class="btn-order" hx-on:click="orderDesign('Logo Refresh', '5500')">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/254796498268?text=Hi%20Nova%20Works%20Design,%20I%20need%20a%20design" class="whatsapp-float">
+        💬 Chat on WhatsApp
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Nova Works Design. Nairobi, Kenya. | Call/WhatsApp: 0796 498 268</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterDesigns(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cards = document.querySelectorAll('.design-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        function orderDesign(name, price) {
+            const message = `Hi Nova Works Design! I'd like to order:\n\n*${name}*\nPrice: KES ${price}\n\nPlease share brief details + timeline.`;
+            const whatsappUrl = `https://wa.me/254796498268?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

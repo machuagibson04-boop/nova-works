@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Works | Baking • Design • ICT • Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', Arial, sans-serif; background: #000000; color: #F5F5F5; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { background: #000000; padding: 16px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #2B2B35; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 40px; width: auto; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: #F5F5F5; }
+        .logo-text span { color: #6B1E3A; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #A0A0B0; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #B8A1D9; }
+        .hero { text-align: center; padding: 120px 0; position: relative; background: #0F0F0F; overflow: hidden; }
+        .hero::before { content: 'NOVA WORKS'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8rem; font-weight: 700; color: #6B1E3A; opacity: 0.05; letter-spacing: 8px; z-index: 0; white-space: nowrap; }
+        .hero-content { position: relative; z-index: 1; }
+        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+        .subtext { color: #A0A0B0; font-size: 1.1rem; margin-bottom: 40px; }
+        .btn { display: inline-block; padding: 14px 32px; background: #6B1E3A; color: #F5F5F5; text-decoration: none; font-weight: 600; border-radius: 10px; transition: all 0.2s; }
+        .btn:hover { transform: translateY(-2px); background: #7d2343; box-shadow: 0 6px 20px rgba(107, 30, 58, 0.4); }
+        .btn-outline { background: transparent; border: 2px solid #B8A1D9; color: #B8A1D9; }
+        .btn-outline:hover { background: #B8A1D9; color: #000000; }
+        section { padding: 80px 0; background: #0F0F0F; }
+        h2 { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 50px; color: #6B1E3A; }
+        .services-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+        .card { background: #2B2B35; padding: 32px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 1px solid #1a1a20; transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(107, 30, 58, 0.2); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 16px; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #F5F5F5; }
+        .card p { color: #A0A0B0; margin-bottom: 24px; }
+        .why-grid { display: grid; gap: 30px; grid-template-columns: 1fr; text-align: center; }
+        .why-item h3 { font-size: 1.2rem; margin-bottom: 8px; color: #B8A1D9; }
+        .why-item p { color: #A0A0B0; }
+        .contact { text-align: center; background: #2B2B35; border-radius: 10px; padding: 60px 20px; }
+        .contact p { color: #A0A0B0; margin-bottom: 30px; }
+        .small-text { font-size: 0.9rem; color: #A0A0B0; margin-top: 20px; }
+        footer { background: #000000; text-align: center; padding: 30px 0; color: #A0A0B0; font-size: 0.9rem; border-top: 1px solid #2B2B35; }
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .hero::before { font-size: 12rem; letter-spacing: 12px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 600px) { .nav-links { display: none; } .hero::before { font-size: 4rem; letter-spacing: 4px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                <img src="logo.png" alt="Nova Works Logo">
+                <div class="logo-text">Nova<span>Works</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Work that works for you</h1>
+            <p class="subtext">Baking • Graphic Design • ICT Work • Fashion & Design — Nairobi</p>
+            <a href="https://wa.me/254796498268?text=Hi%20Nova%20Works%20I%20need%20help%20with..." class="btn">Chat on WhatsApp</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Work</h2>
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-icon">🎂</div>
+                    <h3>Baking</h3>
+                    <p>Custom cakes, pastries, event desserts. Freshly made for birthdays, weddings, corporate events. From KES 3,000</p>
+                    <a href="bakery.html" class="btn btn-outline">Order Cakes</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Graphic Design</h3>
+                    <p>Logos, flyers, posters, brand kits and social media designs that make your business stand out</p>
+                    <a href="graphic-design.html" class="btn btn-outline">Start Design</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>ICT Work</h3>
+                    <p>Excel cleanups, data entry, M-Pesa reconciliations, computer packages training, virtual admin support</p>
+                    <a href="ict-works.html" class="btn btn-outline">Hire for ICT</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✂️</div>
+                    <h3>Fashion & Design</h3>
+                    <p>Tailoring, custom outfits, alterations, fashion consulting for individuals and events</p>
+                    <a href="fashion-design.html" class="btn btn-outline">Explore Fashion</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Why choose Nova Works</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <h3>One team, four skill sets</h3>
+                    <p>All your needs under one trusted brand</p>
+                </div>
+                <div class="why-item">
+                    <h3>Nairobi based, fast response</h3>
+                    <p>WhatsApp replies in under 1 hour</p>
+                </div>
+                <div class="why-item">
+                    <h3>Quality + affordability</h3>
+                    <p>Professional work without the big agency price</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact">
+                <h2>Start the work</h2>
+                <p>Based in Nairobi. Serving all areas. Delivery + online classes available.</p>
+                <a href="https://wa.me/254796498268?text=Hi%20Nova%20Works%20I%20need%20help%20with..." class="btn">Chat on WhatsApp</a>
+                <p class="small-text">Call/WhatsApp: 0796 498 268 | Reply time: Under 1 hour, 8am-8pm daily</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Nova Works. Nairobi, Kenya. | 0796 498 268</p>
+        </div>
+    </footer>
+</body>
+</html>

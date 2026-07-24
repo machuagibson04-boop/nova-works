@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Works ICT | Computer Packages • Excel • Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', Arial, sans-serif; background: #000000; color: #F5F5F5; line-height: 1.6; position: relative; min-height: 100vh; }
+        body::before { content: ''; background: url('logo.png') center/contain no-repeat; opacity: 0.03; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vh; z-index: 0; pointer-events: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        header { background: #0F0F0F; padding: 20px 0; border-bottom: 1px solid #2B2B35; position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 36px; width: auto; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: #F5F5F5; }
+        .logo-text span { color: #6B1E3A; }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; border: 2px solid #B8A1D9; color: #B8A1D9; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.2s; }
+        .btn-back:hover { background: #B8A1D9; color: #000000; transform: translateX(-4px); }
+        .ict-hero { text-align: center; padding: 60px 0 40px; }
+        h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; color: #6B1E3A; }
+        .hero-subtext { color: #A0A0B0; font-size: 1.1rem; margin-bottom: 30px; }
+        .filter-bar { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .filter-btn { padding: 8px 20px; background: #2B2B35; border: 1px solid #2B2B35; color: #A0A0B0; border-radius: 20px; cursor: pointer; font-family: inherit; font-weight: 500; transition: all 0.2s; }
+        .filter-btn:hover, .filter-btn.active { background: #6B1E3A; border-color: #6B1E3A; color: #F5F5F5; }
+        .ict-grid { display: grid; gap: 28px; grid-template-columns: 1fr; padding-bottom: 80px; }
+        .ict-card { background: #2B2B35; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 30px rgba(0,0,0,0.4); border: 1px solid #1a1a20; transition: transform 0.3s, box-shadow 0.3s; }
+        .ict-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(107, 30, 58, 0.2); }
+        .ict-img { width: 100%; height: 280px; object-fit: cover; background: #1A1A1A; display: block; }
+        .ict-info { padding: 24px; }
+        .ict-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: #F5F5F5; }
+        .ict-desc { color: #A0A0B0; font-size: 0.95rem; margin-bottom: 16px; line-height: 1.5; }
+        .ict-footer { display: flex; justify-content: space-between; align-items: center; }
+        .ict-price { font-size: 1.3rem; font-weight: 700; color: #B8A1D9; }
+        .btn-order { padding: 10px 20px; background: #6B1E3A; color: #F5F5F5; text-decoration: none; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+        .btn-order:hover { background: #7d2343; transform: scale(1.05); }
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: #6B1E3A; color: #F5F5F5; padding: 16px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 6px 20px rgba(107, 30, 58, 0.5); z-index: 99; transition: all 0.2s; }
+        .whatsapp-float:hover { transform: scale(1.05); background: #7d2343; }
+        footer { background: #000000; text-align: center; padding: 30px 0; color: #A0A0B0; font-size: 0.9rem; border-top: 1px solid #2B2B35; }
+        @media (min-width: 640px) { .ict-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .ict-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 3.2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Nova Works">
+                <div class="logo-text">Nova<span>Works</span> ICT</div>
+            </div>
+            <a href="index.html" class="btn-back">← Back to Main Site</a>
+        </div>
+    </header>
+
+    <section class="ict-hero">
+        <div class="container">
+            <h1>ICT Skills & Admin Support</h1>
+            <p class="hero-subtext">Computer Packages • Excel Training • Data Entry • Virtual Assistant — Nairobi | Call: 0796 498 268</p>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" hx-on:click="filterICT('all', this)">All Services</button>
+                <button class="filter-btn" hx-on:click="filterICT('training', this)">Training</button>
+                <button class="filter-btn" hx-on:click="filterICT('admin', this)">Admin Work</button>
+                <button class="filter-btn" hx-on:click="filterICT('excel', this)">Excel</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="ict-grid" id="ictGrid">
+                <div class="ict-card" data-category="training">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Computer+Packages" alt="Computer Packages" class="ict-img">
+                    <div class="ict-info">
+                        <h3 class="ict-name">Computer Packages Course</h3>
+                        <p class="ict-desc">MS Word, Excel, PowerPoint, Internet, Email. 4 weeks. Certificate issued. In-person Nairobi.</p>
+                        <div class="ict-footer">
+                            <span class="ict-price">KES 6,000</span>
+                            <button class="btn-order" hx-on:click="orderICT('Computer Packages Course', '6000')">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ict-card" data-category="excel">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Excel+Advanced" alt="Excel Advanced" class="ict-img">
+                    <div class="ict-info">
+                        <h3 class="ict-name">Advanced Excel Training</h3>
+                        <p class="ict-desc">VLOOKUP, PivotTables, Macros, Dashboards. 2 weeks intensive. For business + jobs.</p>
+                        <div class="ict-footer">
+                            <span class="ict-price">KES 7,500</span>
+                            <button class="btn-order" hx-on:click="orderICT('Advanced Excel Training', '7500')">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ict-card" data-category="admin">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Data+Entry" alt="Data Entry" class="ict-img">
+                    <div class="ict-info">
+                        <h3 class="ict-name">Data Entry Services</h3>
+                        <p class="ict-desc">Fast, accurate data entry for surveys, receipts, invoices. M-Pesa reconciliation included.</p>
+                        <div class="ict-footer">
+                            <span class="ict-price">KES 1,500/day</span>
+                            <button class="btn-order" hx-on:click="orderICT('Data Entry Services', '1500/day')">Hire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ict-card" data-category="admin">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Virtual+Assistant" alt="Virtual Assistant" class="ict-img">
+                    <div class="ict-info">
+                        <h3 class="ict-name">Virtual Assistant</h3>
+                        <p class="ict-desc">Email management, scheduling, research, document prep. Monthly retainer available.</p>
+                        <div class="ict-footer">
+                            <span class="ict-price">KES 15,000/mo</span>
+                            <button class="btn-order" hx-on:click="orderICT('Virtual Assistant', '15000/mo')">Hire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ict-card" data-category="excel">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Excel+Cleanup" alt="Excel Cleanup" class="ict-img">
+                    <div class="ict-info">
+                        <h3 class="ict-name">Excel Cleanup & Reports</h3>
+                        <p class="ict-desc">Send us your messy Excel. We clean, format, add formulas, create charts. 48hr turnaround.</p>
+                        <div class="ict-footer">
+                            <span class="ict-price">From KES 2,000</span>
+                            <button class="btn-order" hx-on:click="orderICT('Excel Cleanup & Reports', '2000')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ict-card" data-category="training">
+                    <img src="https://via.placeholder.com/400x300/2B2B35/B8A1D9?text=Digital+Skills" alt="Digital Skills" class="ict-img">
+                    <div class="ict-info">
+                        <h3 class="ict-name">Digital Skills for Business</h3>
+                        <p class="ict-desc">Canva, WhatsApp Business, Google Drive, basic website setup. 1-on-1 or group classes.</p>
+                        <div class="ict-footer">
+                            <span class="ict-price">KES 4,500</span>
+                            <button class="btn-order" hx-on:click="orderICT('Digital Skills for Business', '4500')">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/254796498268?text=Hi%20Nova%20Works%20ICT,%20I%20need%20help%20with" class="whatsapp-float">
+        💬 Chat on WhatsApp
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Nova Works ICT. Nairobi, Kenya. | Call/WhatsApp: 0796 498 268</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterICT(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cards = document.querySelectorAll('.ict-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        function orderICT(name, price) {
+            const message = `Hi Nova Works ICT! I'd like to inquire about:\n\n*${name}*\nPrice: KES ${price}\n\nPlease share details + availability.`;
+            const whatsappUrl = `https://wa.me/254796498268?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
